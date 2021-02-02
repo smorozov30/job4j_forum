@@ -3,6 +3,12 @@ language: java
 jdk:
   - openjdk14
 
+# создание БД для тестов
+services:
+  - postgresql
+before_install:
+  - psql -c "CREATE DATABASE forum;" -U postgres
+
 # используем режим обычного пользователя для сборки проекта.
 sudo: false
 
@@ -18,3 +24,6 @@ notifications:
       - moroz.future@gmail.com
     on_success: never # default: change
     on_failure: always # default: always
+env:
+  global:
+    - CODECOV_TOKEN="83944b4f-40e4-4d42-a63c-c57365feb14a"

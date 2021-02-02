@@ -1,5 +1,8 @@
 package ru.job4j.forum.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -15,6 +18,7 @@ public class Topic {
     private String description;
     private Calendar created = Calendar.getInstance();
 
+    @Fetch(FetchMode.JOIN)
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "topic")
     private List<Post> posts = new ArrayList<>();
 
