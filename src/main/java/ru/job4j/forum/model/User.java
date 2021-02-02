@@ -1,22 +1,22 @@
 package ru.job4j.forum.model;
 
+import javax.persistence.*;
 import java.util.Objects;
 
+@Entity
+@Table(name = "users")
 public class User {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String username;
     private String password;
-    private boolean enabled;
 
-    public static User of(int id, String username, String password, boolean enabled) {
-        User user = new User();
-        user.id = id;
-        user.username = username;
-        user.password = password;
-        user.enabled = enabled;
-        return user;
-    }
+    @ManyToOne
+    @JoinColumn(name = "authority_id")
+    private Authority authority;
+
+    private boolean enabled;
 
     public int getId() {
         return id;
@@ -40,6 +40,14 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Authority getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(Authority authority) {
+        this.authority = authority;
     }
 
     public boolean isEnabled() {
