@@ -31,9 +31,7 @@ public class TopicControl {
 
     @GetMapping("/topic")
     public String topic(@RequestParam("id") int id, Model model) {
-        Topic topic = service.getTopicById(id);
-        model.addAttribute("topic", topic);
-        model.addAttribute("posts", topic.getPosts());
+        model.addAttribute("topic", service.getTopicById(id));
         return "topic/topic";
     }
 }

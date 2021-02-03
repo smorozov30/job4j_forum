@@ -37,7 +37,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${posts}" var="post">
+            <c:forEach items="${topic.posts}" var="post">
                 <tr>
                     <td scope="col"><c:out value="${post.text}"/></td>
                     <td scope="col"><c:out value="${post.date}"/></td>
