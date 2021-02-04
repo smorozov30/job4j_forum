@@ -23,6 +23,9 @@
 </head>
 <body>
 <div class="container mt-3">
+    <div class="form-group" style="text-align: center;">
+        <h2>Форум JOB4J</h2>
+    </div>
     <div class="form-group">
         <a class="btn btn-primary" href="/topic/edit?id=0">Добавить тему</a>
     </div>
